@@ -6,14 +6,14 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title><%=title%></title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" />
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -25,35 +25,29 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Register</h2>
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class="form-signup" id="contactForm"
-                            action="/register"
+                        <h2 class="text-white mb-5">Add a book!</h2>
+              
+                        <form class="form-signup" id="addBookForm"
+                            action="/books"
                             method="POST"                        
                         >
                         <% if(typeof(message) !=  "undefined") {%>
-                        <h4 style="color: red"><%- message %></h4> 
-                        <% } %>
+                        <h4 style="color: green"><%- message %></h4> 
+                        <%}%>
                             <!-- First Name-->
                             <div class="row input-group-newsletter">
                                 <div class="col">
                                     <input 
                                         class="form-control" 
-                                        id="firstName" 
+                                        id="title" 
                                         type="text" 
-                                        name="firstName"
-                                        placeholder="Enter your first name..." aria-label="Enter your first name..." 
+                                        name="title"
+                                        placeholder="Enter title..." aria-label="Enter title..." 
                                             <% if(typeof(body) !== "undefined") { %>
-                                                value="<%-body.firstName%>" <%}%> 
+                                                value="<%-body.title%>" <%}%> 
                                     />
                                     <% if(typeof(errs) !=  "undefined") {%>
-                                        <span style="color: red"><%-errs.firstNameMsg%></span> 
+                                        <span style="color: red"><%-errs.titleMsg%></span> 
                                     <% } %>
     
                                 </div>
@@ -65,17 +59,17 @@
                                 <div class="col">
                                     <input 
                                         class="form-control" 
-                                        id="lastName" 
+                                        id="author" 
                                         type="text" 
-                                        name="lastName"
-                                        placeholder="Enter last Name..." 
-                                        aria-label="Enter last Name..." 
+                                        name="author"
+                                        placeholder="Enter author..." 
+                                        aria-label="Enter author..." 
                                         <% if(typeof(body) !== "undefined") { %>
-                                            value="<%-body.lastName%>" <%}%>                                         
+                                            value="<%-body.author%>" <%}%>                                         
                                     />
                                 </div>
                                 <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.lastNameMsg%></span> 
+                                    <span style="color: red"><%-errs.authorMsg%></span> 
                                 <% } %>                                
                             </div>
                             <div class="space"></div>
@@ -84,16 +78,16 @@
                                 <div class="col">
                                     <input 
                                         class="form-control" 
-                                        id="emailAddress" 
-                                        type="email" 
-                                        name="email"
-                                        placeholder="Enter email address..." aria-label="Enter email address..." 
+                                        id="ISBN" 
+                                        type="text" 
+                                        name="ISBN"
+                                        placeholder="Enter ISBN..." aria-label="Enter ISBN..." 
                                         <% if(typeof(body) !== "undefined") { %>
-                                            value="<%-body.email%>" <%}%>                                         
+                                            value="<%-body.ISBN%>" <%}%>                                         
                                     />
                                 </div>
                                 <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.emailMsg%></span> 
+                                    <span style="color: red"><%-errs.ISBNMsg%></span> 
                                 <% } %>
                             </div>
                             <div class="space"></div>
@@ -103,17 +97,17 @@
                                 <div class="col">
                                     <input 
                                         class="form-control" 
-                                        id="address" 
+                                        id="numberOfPages" 
                                         type="text" 
-                                        name="address"
-                                        placeholder="Enter address..." 
-                                        aria-label="Enter address..." 
+                                        name="numberOfPages"
+                                        placeholder="Enter number of Pages..." 
+                                        aria-label="Enter number of Pages..." 
                                         <% if(typeof(body) !== "undefined") { %>
-                                            value="<%-body.address%>" <%}%>                                         
+                                            value="<%-body.numberOfPages%>" <%}%>                                         
                                     />
                                 </div>
                                 <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.addressMsg%></span> 
+                                    <span style="color: red"><%-errs.numberOfPagesMsg%></span> 
                                 <% } %>
                             </div>
 
@@ -122,17 +116,17 @@
                                 <div class="col">
                                     <input 
                                         class="form-control" 
-                                        id="city" 
+                                        id="price" 
                                         type="text" 
-                                        name="city"
-                                        placeholder="Enter city.." 
-                                        aria-label="Enter city..." 
+                                        name="price"
+                                        placeholder="Enter price.." 
+                                        aria-label="Enter price..." 
                                         <% if(typeof(body) !== "undefined") { %>
-                                            value="<%-body.city%>" <%}%>                                         
+                                            value="<%-body.price%>" <%}%>                                         
                                     />
                                 </div>
                                 <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.cityMsg%></span> 
+                                    <span style="color: red"><%-errs.priceMsg%></span> 
                                 <% } %>
                             </div>
                             <!-- state-->
@@ -140,67 +134,17 @@
                                 <div class="col">
                                     <input 
                                         class="form-control" 
-                                        id="state" 
+                                        id="yearPublished" 
                                         type="text" 
-                                        name="state"
-                                        placeholder="Enter state..." 
-                                        aria-label="Enter state..." 
+                                        name="yearPublished"
+                                        placeholder="Enter year Published..." 
+                                        aria-label="Enter year Published..." 
                                         <% if(typeof(body) !== "undefined") { %>
-                                            value="<%-body.state%>" <%}%>                                         
+                                            value="<%-body.yearPublished%>" <%}%>                                         
                                     />
                                 </div>
                                 <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.stateMsg%></span> 
-                                <% } %>
-                            </div>
-                            <!-- zip code-->
-                            <div class="row input-group-newsletter space">
-                                <div class="col">
-                                    <input 
-                                        class="form-control" 
-                                        id="zipCode" 
-                                        type="text" 
-                                        name="zipCode"
-                                        placeholder="Enter zip code.." 
-                                        aria-label="Enter zip code.." 
-                                        <% if(typeof(body) !== "undefined") { %>
-                                            value="<%-body.zipCpde%>" <%}%>                                         
-                                    />
-                                </div>
-                                <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.zipCodeMsg%></span> 
-                                <% } %>
-                            </div>
-                            <!-- password -->
-                            <div class="row input-group-newsletter space">
-                                <div class="col">
-                                    <input 
-                                        class="form-control" 
-                                        id="password" 
-                                        type="password" 
-                                        name="password"
-                                        placeholder="Enter password..." 
-                                        aria-label="Enter password..." 
-                                    />
-                                </div>
-                                <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.passwordMsg%></span> 
-                                <% } %>
-                            </div>
-                            <!-- confirm password -->
-                            <div class="row input-group-newsletter space">
-                                <div class="col">
-                                    <input 
-                                        class="form-control" 
-                                        id="confirmPassword" 
-                                        type="password" 
-                                        name="confirmPassword"
-                                        placeholder="Confirm Password..." 
-                                        aria-label="Confirm Password..." 
-                                    />
-                                </div>
-                                <% if(typeof(errs) !=  "undefined") {%>
-                                    <span style="color: red"><%-errs.confirmPasswordMsg%></span> 
+                                    <span style="color: red"><%-errs.yearPublishedMsg%></span> 
                                 <% } %>
                             </div>
                             <div>
@@ -208,7 +152,7 @@
                                     <button 
                                         class="btn btn-primary" 
                                         id="submitButton"     
-                                        type="submit">Register
+                                        type="submit">Add Book
                                     </button>
                                 </div>
                             </div>

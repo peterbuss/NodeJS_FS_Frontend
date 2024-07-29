@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title><%=title%></title>
+        <title>404</title>
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -19,39 +19,20 @@
         <!-- Navigation-->
         <%-include('includes/nav')%>
         <!-- Masthead-->
-        <section class="signup-section" id="signup">
-            <div class="container px-4 px-lg-5">
-                <h4 class="mx-auto my-0 text-uppercase">Books</h4>
-                <% if(typeof(message) !=  "undefined") {%>
-                    <h4 style="color: green"><%-message %></h4> 
-                <%}%>
-                <div class="nav-link">
-                    <a href="/books/addbook" alt="Add a book" title="Add a book">+ Add a book</a>
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center flex-column">
+                <div>                 
                 </div>
-                <hr/>
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-10 col-lg-8 mx-auto">
-                       <% if(typeof(data) != "undefined") {
-                            data.map(book => {%>
-                                <span>
-                                    <a href="/books/editBook/<%-book._id%>">Edit this book</a>
-                                </span>
-                                <span style="float: right;">
-                                    <a href="/books/deleteBook/<%-book._id%>">Delete this book</a>
-                                </span>
-                                <p>Title: <%-book.title%></p>
-                                <p>Author: <%-book.author%></p>
-                                <p>ISBN: <%-book.ISBN%></p>
-                                <p>Number of pages: <%-book.numberOfPages%></p>
-                                <p>Price: <%-book.price%></p>
-                                <p>Year Published: <%-book.yearPublished%></p>
-                                <hr/>
-                            <%})}%>  
+                <div class="d-flex justify-content-center">
+                    <div class="text-center">
+                        <h1 class="text-white-20">404</h1>
+                        <p class="text-white-50">The page you are looking is not available.</p>
+                        <a class="btn btn-primary" href="/about">Get Started</a>
                     </div>
                 </div>
             </div>
-        </section>
- 
+        </header>
+  
         <!-- Footer-->
         <%-include('includes/footer.ejs')%>
         <!-- Bootstrap core JS-->

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title><%=pagename%></title>
+        <title><%=title%></title>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -20,11 +20,11 @@
         <%-include('includes/nav')%>
         <!-- Masthead-->
         <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center flex-column">
                 <div>
-                    <% if(typeof(session) !=  "undefined" && typeof(session.name != "undefined")){%>
+                    <%if(typeof(session) !=  "undefined" && typeof(session.name) != "undefined"){%>
                         <h4 style="color: green">Welcome <%-session.name%></h4> 
-                    <% } %>                    
+                    <%}%>                    
                 </div>
                 <div class="d-flex justify-content-center">
                     <div class="text-center">

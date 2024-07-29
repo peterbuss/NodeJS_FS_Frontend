@@ -1,6 +1,9 @@
 const express =  require('express');
 const cors = require('cors');
-const router = require('../routes/router');
+const userRouter = require('../routes/userRouter');
+const bookRouter =  require('../routes/bookRouter');
+const authorRouter = require('../routes/authorRouter');
+
 
 const app = express();
 // cors middleware
@@ -20,8 +23,26 @@ app.use(express.static('views'));
 
 
 // home route
-app.use('/', router);
+// user router
+app.use('/', userRouter);
+// books router
+app.use('/books', bookRouter);
+// authors router
+app.use('/authors', authorRouter);
 
+app.use((req, res) => {
+    //req.session.destroy(null);  -- was killing the session all the time
+    res.status(404).render('404');
+});
 
+// error handling middleware
+/* 
+app.use((req, res, next) => {
+    const error = new Error('Not Found!!');
+    error.status = 404;
+    next(error);
+});
+
+ */
 module.exports = app;
 

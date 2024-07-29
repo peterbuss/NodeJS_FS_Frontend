@@ -2,7 +2,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const postRegister = async(body) => {
-    const result = await axios.post(process.env.url + '/register', {
+    const result = await axios.post(process.env.url + 'users/register', {
         firstName: body.firstName,
         lastName: body.lastName,
         address: body.address,
@@ -17,11 +17,11 @@ const postRegister = async(body) => {
 };
 
 const postLogin = async(body) => {
-  const result = await axios.post(process.env.url + '/login', {
+  const result = await axios.post(process.env.url + 'users/login', {
     email: body.email,
     password: body.password
   });
-  console.log(result);
+  console.log("Post Login");
   return result;  
 }
 
